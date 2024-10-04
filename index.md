@@ -105,15 +105,15 @@ Off-line MARL algorithms learn from a fixed dataset of experiences without direc
    - OMAIC tackles the challenge of distribution shift in offline MARL [11].
    - It introduces an implicit constraint to penalize out-of-distribution actions and encourages in-distribution actions.
 
-# (Time Permitting) In-Depth Exploration
+## (Time Permitting) In-Depth Exploration
 
 Explore 1 Algorithm from above in-depth
 
-# (Time Permitting) Current SOTA
+## (Time Permitting) Current SOTA
 
 Find some papers from recent conferences and talk about what is the current SOTA
 
-# References
+## References
 
 [1] Buşoniu, L., Babuška, R., & De Schutter, B. (2010). Multi-agent reinforcement learning: An overview. In Innovations in multi-agent systems and applications-1 (pp. 183-221). Springer.
 
