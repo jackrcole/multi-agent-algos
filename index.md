@@ -37,6 +37,11 @@ On-line MARL algorithms learn from continuous interactions with the environment.
    - VDN decomposes the team value function into a sum of individual agent value functions [6].
    - It assumes that the global Q-function can be additively decomposed into individual agent Q-functions.
    - This approach allows for decentralized execution with centralized training.
+   - VDN works by summing the Q-values of individual agent actions and using the total as a Q-value for the entire system:
+
+     $$Q_{tot}(\boldsymbol{\tau}, \mathbf{u}) = \sum_{i=1}^{n} Q_i(\tau_i, u_i)$$
+
+     where $Q_{tot}$ is the total Q-value, $\boldsymbol{\tau}$ is the joint action-observation history (trajectory), $\mathbf{u}$ is the joint action, $n$ is the number of agents, and $Q_i$ is the individual Q-value for agent $i$.
 
 2. **QMIX**:
    - QMIX extends VDN by using a mixing network to combine individual agent Q-values [7].
