@@ -6,7 +6,7 @@ description: "Mini-project #1 for CMSC 818B: Decision-Making for Robotics (F24)"
 
 [Link to page of what's possible](./possibilities.md).
 
-# Introduction to MARL
+## Introduction to MARL
 
 Multi-Agent Reinforcement Learning (MARL) is an extension of traditional Reinforcement Learning (RL) that deals with multiple agents learning to interact in a shared environment [1]. Here's an overview of MARL:
 
@@ -28,10 +28,12 @@ Multi-Agent Reinforcement Learning (MARL) is an extension of traditional Reinfor
    - Potential for cooperation, competition, or mixed scenarios [5].
 
 ## Types of MARL
+
 MARL algorithms can be broadly categorized into two types: On-line and Off-line.
 
 ### On-Line MARL
-On-line MARL algorithms learn from continuous interactions with the environment. Some examples of On-Line MARL algorithms include:
+
+Agents using On-line MARL algorithms learn a policy by directly interacting with the environment and using its experience to improve its behavior. When multiple-agents are involved, this means agents must also learn how to interact with other agents (either as teammates, opponents, or a combination of the two). Some examples of On-Line MARL algorithms are:
 
 1. **Value Decomposition Networks (VDN)**:
    - VDN decomposes the team value function into a sum of individual agent value functions [6].
@@ -71,7 +73,7 @@ On-line MARL algorithms learn from continuous interactions with the environment.
      - $Q_i^{\mu}$ is the centralized action-value function for agent $i$
      - $\mathcal{D}$ is the replay buffer
 
-4. **Multi-Agent Proximal Policy Optimization (MAPPO)**:
+4. **Multi-Agent PPO (MAPPO)**:
    - MAPPO is an extension of PPO (Proximal Policy Optimization) for multi-agent scenarios [12].
    - It combines the sample efficiency of PPO with centralized training and decentralized execution.
    - MAPPO uses a centralized value function and decentralized policies for each agent.
@@ -88,6 +90,7 @@ On-line MARL algorithms learn from continuous interactions with the environment.
    - MAPPO uses a centralized critic to estimate the advantage function, which takes into account the global state and actions of all agents.
 
 ### Off-Line MARL
+
 Off-line MARL algorithms learn from a fixed dataset of experiences without direct interaction with the environment. Some examples of Off-line MARL algorithms include:
 
 1. **BCQ for Multi-Agent RL (MA-BCQ)**:
@@ -103,9 +106,11 @@ Off-line MARL algorithms learn from a fixed dataset of experiences without direc
    - It introduces an implicit constraint to penalize out-of-distribution actions and encourages in-distribution actions.
 
 # (Time Permitting) In-Depth Exploration
+
 Explore 1 Algorithm from above in-depth
 
 # (Time Permitting) Current SOTA
+
 Find some papers from recent conferences and talk about what is the current SOTA
 
 # References
