@@ -47,11 +47,29 @@ On-line MARL algorithms learn from continuous interactions with the environment.
    - QMIX extends VDN by using a mixing network to combine individual agent Q-values [7].
    - It allows for a more complex relationship between individual and team value functions.
    - QMIX ensures that a global argmax performed on the joint action-value function yields the same result as a set of individual argmax operations performed on each agent's Q-values.
+   - The QMIX mixing network combines individual Q-values in a non-linear way:
+
+     $$Q_{tot}(\boldsymbol{\tau}, \mathbf{u}) = f(Q_1(\tau_1, u_1), ..., Q_n(\tau_n, u_n))$$
+
+     where $f$ is a monotonic mixing function implemented as a feed-forward neural network with non-negative weights.
 
 3. **Multi-Agent DDPG (MADDPG)**:
    - MADDPG is an extension of DDPG for multi-agent scenarios [8].
    - It uses a centralized training with decentralized execution paradigm.
    - Each agent has its own actor and critic, where the critic has access to all agents' observations and actions during training.
+   - MADDPG updates its centralized critic through gradient ascent on the expected return:
+
+     $$\nabla_{\theta_i} J(\theta_i) = \mathbb{E}_{\mathbf{x}, \mathbf{a} \sim \mathcal{D}} [\nabla_{\theta_i} \mu_i(a_i | o_i) \nabla_{a_i} Q_i^{\mu}(\mathbf{x}, \mathbf{a})|_{a_i = \mu_i(o_i)}]$$
+
+     where:
+     - $\theta_i$ are the parameters of agent $i$'s policy
+     - $J(\theta_i)$ is the expected return for agent $i$
+     - $\mu_i$ is the deterministic policy of agent $i$
+     - $o_i$ is the observation of agent $i$
+     - $\mathbf{x}$ is the state of the environment
+     - $\mathbf{a}$ is the joint action of all agents
+     - $Q_i^{\mu}$ is the centralized action-value function for agent $i$
+     - $\mathcal{D}$ is the replay buffer
 
 ### Off-Line MARL
 Off-line MARL algorithms learn from a fixed dataset of experiences without direct interaction with the environment. Some examples of Off-line MARL algorithms include:
