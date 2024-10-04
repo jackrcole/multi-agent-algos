@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Multi-Agent Reinforcement Learning (MARL) Algorithms
+title: Survey of Multi-Agent Reinforcement Learning Algorithms
 description: "Mini-project #1 for CMSC 818B: Decision-Making for Robotics (F24)"
 ---
 
