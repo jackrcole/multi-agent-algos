@@ -1,2 +1,4 @@
-## Survey of Multi-Agent Reinforcement Learning (MARL) Algorithms
-### Team: Jack Cole and Bhuvanesh Murali
+# CMSC818B Mini-Project #1
+
+# Survey of Multi-Agent Algorithms
+## Team: Jack Cole and Bhuvanesh Murali
