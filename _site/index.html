@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Survey of Multi-Agent Reinforcement Learning Algorithms | multi-agent-algos</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Survey of Multi-Agent Reinforcement Learning Algorithms" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Mini-project #1 for CMSC 818B: Decision-Making for Robotics (F24)" />
+<meta property="og:description" content="Mini-project #1 for CMSC 818B: Decision-Making for Robotics (F24)" />
+<link rel="canonical" href="http://localhost:4000/" />
+<meta property="og:url" content="http://localhost:4000/" />
+<meta property="og:site_name" content="multi-agent-algos" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Survey of Multi-Agent Reinforcement Learning Algorithms" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","description":"Mini-project #1 for CMSC 818B: Decision-Making for Robotics (F24)","headline":"Survey of Multi-Agent Reinforcement Learning Algorithms","name":"multi-agent-algos","url":"http://localhost:4000/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="icon" type="image/svg+xml" href="./_layouts/github-mark.svg">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=bcddeace9ba0da2c8b0bc8981d468a22744c5348">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">Survey of Multi-Agent Reinforcement Learning Algorithms</h1>
+      <h2 class="project-tagline">Mini-project #1 for CMSC 818B: Decision-Making for Robotics (F24)</h2>
+      <!-- 
+        <a href="https://github.com/jackrcole/multi-agent-algos" class="btn">View on GitHub</a>
+      
+       -->
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <p><a href="/possibilities.html">Link to page of what’s possible</a>.</p>
+
+<h1 id="introduction-to-marl">Introduction to MARL</h1>
+
+<p>Multi-Agent Reinforcement Learning (MARL) is an extension of traditional Reinforcement Learning (RL) that deals with multiple agents learning to interact in a shared environment [1]. Here’s an overview of MARL:</p>
+
+<ol>
+  <li><strong>Primer on normal RL</strong>:
+    <ul>
+      <li>RL involves an agent learning to make decisions by interacting with an environment.</li>
+      <li>The agent receives rewards or penalties based on its actions and aims to maximize cumulative rewards [2].</li>
+    </ul>
+  </li>
+  <li><strong>Why do we need MARL?</strong>:
+    <ul>
+      <li>Real-world scenarios often involve multiple decision-makers or agents.</li>
+      <li>MARL allows for modeling complex interactions and dependencies between agents [3].</li>
+    </ul>
+  </li>
+  <li><strong>What necessitates MARL?</strong>:
+    <ul>
+      <li>Scenarios with multiple autonomous entities (e.g., robotics, game theory, traffic control).</li>
+      <li>Problems where decentralized decision-making is crucial [4].</li>
+    </ul>
+  </li>
+  <li><strong>How does MARL distinguish itself from traditional RL?</strong>:
+    <ul>
+      <li>Multiple agents learning simultaneously.</li>
+      <li>Non-stationary environments due to changing behaviors of other agents.</li>
+      <li>Potential for cooperation, competition, or mixed scenarios [5].</li>
+    </ul>
+  </li>
+</ol>
+
+<p>References:
+[1] Buşoniu, L., Babuška, R., &amp; De Schutter, B. (2010). Multi-agent reinforcement learning: An overview. In Innovations in multi-agent systems and applications-1 (pp. 183-221). Springer.
+[2] Sutton, R. S., &amp; Barto, A. G. (2018). Reinforcement learning: An introduction. MIT press.
+[3] Zhang, K., Yang, Z., &amp; Başar, T. (2021). Multi-agent reinforcement learning: A selective overview of theories and algorithms. Handbook of Reinforcement Learning and Control, 321-384.
+[4] Hernandez-Leal, P., Kartal, B., &amp; Taylor, M. E. (2019). A survey and critique of multiagent deep reinforcement learning. Autonomous Agents and Multi-Agent Systems, 33(6), 750-797.
+[5] Gronauer, S., &amp; Diepold, K. (2022). Multi-agent deep reinforcement learning: a survey. Artificial Intelligence Review, 55(2), 895-943.</p>
+
+<h2 id="types-of-marl">Types of MARL</h2>
+<ol>
+  <li>On-line vs Off-line</li>
+</ol>
+
+<h1 id="on-line-marl">On-Line MARL</h1>
+<p>Breadth-style explanation of 2-3 algorithms</p>
+<ol>
+  <li>VDN</li>
+  <li>QMIX</li>
+  <li>?</li>
+</ol>
+
+<h1 id="off-line-marl">Off-Line MARL</h1>
+<p>Breadth-style explanation of 2-3 algorithms</p>
+<ol>
+  <li>?</li>
+  <li>?</li>
+  <li>?</li>
+</ol>
+
+<h1 id="time-permitting-in-depth-exploration">(Time Permitting) In-Depth Exploration</h1>
+<p>Explore 1 Algorithm from above in-depth</p>
+
+<h1 id="time-permitting-current-sota">(Time Permitting) Current SOTA</h1>
+<p>Find some papers from recent conferences and talk about what is the current SOTA</p>
+
+<h1 id="references">References</h1>
+
+<p>[1] Buşoniu, L., Babuška, R., &amp; De Schutter, B. (2010). Multi-agent reinforcement learning: An overview. In Innovations in multi-agent systems and applications-1 (pp. 183-221). Springer.</p>
+
+<p>[2] Sutton, R. S., &amp; Barto, A. G. (2018). Reinforcement learning: An introduction. MIT press.</p>
+
+<p>[3] Zhang, K., Yang, Z., &amp; Başar, T. (2021). Multi-agent reinforcement learning: A selective overview of theories and algorithms. Handbook of Reinforcement Learning and Control, 321-384.</p>
+
+<p>[4] Hernandez-Leal, P., Kartal, B., &amp; Taylor, M. E. (2019). A survey and critique of multiagent deep reinforcement learning. Autonomous Agents and Multi-Agent Systems, 33(6), 750-797.</p>
+
+<p>[5] Gronauer, S., &amp; Diepold, K. (2022). Multi-agent deep reinforcement learning: a survey. Artificial Intelligence Review, 55(2), 895-943.</p>
+
+
+      <footer class="site-footer">
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>
