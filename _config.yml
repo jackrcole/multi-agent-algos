@@ -1,4 +1,6 @@
-theme: jekyll-theme-cayman
+remote_theme: pages-themes/cayman@v0.2.0
+plugins:
+- jekyll-remote-theme
 
 title: Multi-Agent Algorithms
-description: CMSC818B Mini-Project \#1
+description: Mini-project 1 for CMSC 818B: Decision-Making for Robotics (F24)
