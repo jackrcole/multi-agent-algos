@@ -54,7 +54,7 @@ On-line MARL algorithms learn from continuous interactions with the environment.
      where $f$ is a monotonic mixing function implemented as a feed-forward neural network with non-negative weights.
 
 3. **Multi-Agent DDPG (MADDPG)**:
-   - MADDPG is an extension of DDPG for multi-agent scenarios [8].
+   - MADDPG is an extension of DDPG (Deep Deterministic Policy Gradient) for multi-agent scenarios [8].
    - It uses a centralized training with decentralized execution paradigm.
    - Each agent has its own actor and critic, where the critic has access to all agents' observations and actions during training.
    - MADDPG updates its centralized critic through gradient ascent on the expected return:
@@ -70,6 +70,22 @@ On-line MARL algorithms learn from continuous interactions with the environment.
      - $\mathbf{a}$ is the joint action of all agents
      - $Q_i^{\mu}$ is the centralized action-value function for agent $i$
      - $\mathcal{D}$ is the replay buffer
+
+4. **Multi-Agent Proximal Policy Optimization (MAPPO)**:
+   - MAPPO is an extension of PPO (Proximal Policy Optimization) for multi-agent scenarios [12].
+   - It combines the sample efficiency of PPO with centralized training and decentralized execution.
+   - MAPPO uses a centralized value function and decentralized policies for each agent.
+   - The key idea is to optimize the following objective for each agent $i$:
+
+     $$L^{CLIP}(\theta_i) = \hat{\mathbb{E}}_t[\min(r_t(\theta_i)\hat{A}_t, \text{clip}(r_t(\theta_i), 1-\epsilon, 1+\epsilon)\hat{A}_t)]$$
+
+     where:
+     - $\theta_i$ are the policy parameters for agent $i$
+     - $r_t(\theta_i)$ is the probability ratio between the new and old policy
+     - $\hat{A}_t$ is the estimated advantage function
+     - $\epsilon$ is a hyperparameter that constrains the policy update
+
+   - MAPPO uses a centralized critic to estimate the advantage function, which takes into account the global state and actions of all agents.
 
 ### Off-Line MARL
 Off-line MARL algorithms learn from a fixed dataset of experiences without direct interaction with the environment. Some examples of Off-line MARL algorithms include:
@@ -115,3 +131,5 @@ Find some papers from recent conferences and talk about what is the current SOTA
 [10] Yang, Y., Luo, Y., Li, M., Schuurmans, D., & Ammar, H. B. (2022). Batch reinforcement learning with hyperparameter gradients. In International Conference on Machine Learning (pp. 24983-25009). PMLR.
 
 [11] Jiang, M., Dmitriev, A., & Kuhnle, A. (2022). Offline multi-agent reinforcement learning with implicit constraint. arXiv preprint arXiv:2209.11698.
+
+[12] Yu, C., Velu, A., Vinitsky, E., Wang, Y., Bayen, A., & Wu, Y. (2021). The surprising effectiveness of PPO in cooperative, multi-agent games. arXiv preprint arXiv:2103.01955.
