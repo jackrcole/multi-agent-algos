@@ -1,4 +1,4 @@
-# CMSC818B Mini-Project #1
+# CMSC818B Mini-Project #1: Survey of Multi-Agent Reinforcement Learning (MARL) Algorithms
 
-# Survey of Multi-Agent Algorithms
-## Team: Jack Cole and Bhuvanesh Murali
+**Team Members** Jack Cole and Bhuvanesh Murali
+**Website URL** <https://jackcole.org/multi-agent-algos/>
