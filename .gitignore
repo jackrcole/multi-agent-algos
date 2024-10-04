@@ -1,0 +1,36 @@
+# Jekyll build output
+_site/
+
+# Sass cache
+.sass-cache/
+
+# Jekyll cache
+.jekyll-cache/
+.jekyll-metadata
+
+# Bundler config
+.bundle/
+vendor/
+
+# macOS system files
+.DS_Store
+
+# Editor/IDE specific files
+.idea/
+.vscode/
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+
+# Ruby environment file
+.ruby-version
+
+# Environment normalization
+/.bundle/
+/vendor/bundle
+/lib/bundler/man/
