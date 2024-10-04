@@ -75,7 +75,7 @@ On-line MARL algorithms learn from continuous interactions with the environment.
    - MAPPO is an extension of PPO (Proximal Policy Optimization) for multi-agent scenarios [12].
    - It combines the sample efficiency of PPO with centralized training and decentralized execution.
    - MAPPO uses a centralized value function and decentralized policies for each agent.
-   - The key idea is to optimize the following objective for each agent $i$:
+   - The key idea is to optimize the following objective for each agent $i$ using the following loss function:
 
      $$L^{CLIP}(\theta_i) = \hat{\mathbb{E}}_t[\min(r_t(\theta_i)\hat{A}_t, \text{clip}(r_t(\theta_i), 1-\epsilon, 1+\epsilon)\hat{A}_t)]$$
 
