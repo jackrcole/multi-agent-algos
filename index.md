@@ -10,19 +10,19 @@ description: "Mini-project #1 for CMSC 818B: Decision-Making for Robotics (F24)"
 
 Multi-Agent Reinforcement Learning (MARL) is an extension of traditional Reinforcement Learning (RL) that deals with multiple agents learning to interact in a shared environment [1]. Here's an overview of MARL:
 
-1. **Primer on normal RL**: 
+1. **Primer on normal RL**:
    - RL involves an agent learning to make decisions by interacting with an environment.
    - The agent receives rewards or penalties based on its actions and aims to maximize cumulative rewards [2].
 
-2. **Why do we need MARL?**: 
+2. **Why do we need MARL?**:
    - Real-world scenarios often involve multiple decision-makers or agents.
    - MARL allows for modeling complex interactions and dependencies between agents [3].
 
-3. **What necessitates MARL?**: 
+3. **What necessitates MARL?**:
    - Scenarios with multiple autonomous entities (e.g., robotics, game theory, traffic control).
    - Problems where decentralized decision-making is crucial [4].
 
-4. **How does MARL distinguish itself from traditional RL?**: 
+4. **How does MARL distinguish itself from traditional RL?**:
    - Multiple agents learning simultaneously.
    - Non-stationary environments due to changing behaviors of other agents.
    - Potential for cooperation, competition, or mixed scenarios [5].
