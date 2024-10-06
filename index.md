@@ -4,7 +4,7 @@ title: Survey of Multi-Agent Reinforcement Learning Algorithms
 description: "Mini-project #1 for CMSC 818B: Decision-Making for Robotics (F24)"
 ---
 
-[Link to page of what's possible](./possibilities.md).
+[1] Overview document: https://arxiv.org/pdf/2409.03052 
 
 ## Introduction to MARL
 
