@@ -8,7 +8,7 @@ description: "Mini-project #1 for CMSC 818B: Decision-Making for Robotics (F24)"
 
 ## Introduction to MARL
 
-Multi-Agent Reinforcement Learning (MARL) is an extension of traditional Reinforcement Learning (RL) that deals with multiple agents learning to interact in a shared environment [1]. Here's an overview of MARL:
+Multi-Agent Reinforcement Learning (MARL) is an extension of traditional Reinforcement Learning (RL) that deals with multiple agents learning to interact in a shared environment [1].
 
 1. **Primer on normal RL**:
    - RL involves an agent learning to make decisions by interacting with an environment.
@@ -27,13 +27,50 @@ Multi-Agent Reinforcement Learning (MARL) is an extension of traditional Reinfor
    - Non-stationary environments due to changing behaviors of other agents.
    - Potential for cooperation, competition, or mixed scenarios [5].
 
-## Types of MARL
+## Formalization of MARL
+
+MARL can be formalized as an extension of the Markov Decision Process (MDP) used in single-agent RL. The formalization typically uses a Decentralized Partially Observable Markov Decision Process (Dec-POMDP) or a Stochastic Game framework [13] [14].
+
+1. **Dec-POMDP**:
+   A Dec-POMDP is defined by a tuple ($I$, $S$, $A_{i \in I}$, $O_{i \in I}$, $P$, $R$, $\gamma$) where:
+   - $I$ is the finite set of agents
+   - $S$ is the set of environmental states
+   - $A_i$ is the set of actions available to agent $i$
+   - $O_i$ is the set of observations for agent $i$
+   - $P: S \times \prod_{i \in I} A_i \times S \rightarrow [0, 1]$ is the state transition function
+   - $R: S \times \prod_{i \in I} A_i \rightarrow \mathbb{R}$ is the reward function
+   - $\gamma \in [0, 1]$ is the discount factor
+   [15]
+
+2. **Stochastic Game**:
+   A stochastic game is defined by a tuple ($I$, $S$, $A_{i \in I}$, $P$, $R_{i \in I}$) where:
+   - $I, S, A_i$ are defined as in Dec-POMDP
+   - $P: S \times \prod_{i \in I} A_i \times S \rightarrow [0, 1]$ is the state transition function
+   - $R_i: S \times \prod_{i \in I} A_i \rightarrow \mathbb{R}$ is the reward function for agent $i$
+   [16]
+
+3. **Policy and Value Functions**:
+   - Policy: $\pi_i: O_i \rightarrow \Delta(A_i)$, where $\Delta(A_i)$ is the probability distribution over actions
+   - Joint Policy: $\boldsymbol{\pi} = (\pi_1, ..., \pi_n)$
+   <!-- - State-Value Function: $V^{\boldsymbol{\pi}}(s)$ = $\mathbb{E}_{\boldsymbol{\pi}}\[\sum_{t=0}^{\infty} \gamma^t R(s_t, \mathbf{a}_t) | s_0 = s\]$ -->
+   <!-- - Action-Value Function: $Q^{\boldsymbol{\pi}}(s, \mathbf{a}) = \mathbb{E}_{\boldsymbol{\pi}}[\sum_{t=0}^{\infty} \gamma^t R(s_t, \mathbf{a}_t) | s_0 = s, \mathbf{a}_0 = \mathbf{a}]$
+   [17] -->
+   - State-Value Function: $V^{\mathbf{\pi}}(s)$ = $\mathbb{E}\_{\mathbf{\pi}}\left[\sum\_{t=0}^{\infty} \gamma^t R(s\_t, \mathbf{a}\_t) \mid s_0 = s\right]$
+   - Action-Value Function: $Q^{\mathbf{\pi}}(s, \mathbf{a}) = \mathbb{E}\_{\mathbf{\pi}}\left[\sum\_{t=0}^{\infty} \gamma^t R(s\_t, \mathbf{a}\_t) \mid s_0 = s, \mathbf{a}\_0 = \mathbf{a}\right]$
+
+4. **Learning Objective**:
+   The goal in MARL is to find the optimal joint policy $\boldsymbol{\pi}^*$ that maximizes the expected cumulative reward for all agents:
+
+   $$\boldsymbol{\pi}^* = \arg\max_{\boldsymbol{\pi}} \mathbb{E}_{\boldsymbol{\pi}}[\sum_{t=0}^{\infty} \gamma^t R(s_t, \mathbf{a}_t)]$$
+   [18]
+
+## Algorithms
 
 MARL algorithms can be broadly categorized into two types: On-line and Off-line.
 
 ### On-Line MARL
 
-Agents using On-line MARL algorithms learn a policy by directly interacting with the environment and using its experience to improve its behavior. When multiple-agents are involved, this means agents must also learn how to interact with other agents (either as teammates, opponents, or a combination of the two). Some examples of On-Line MARL algorithms are:
+Agents using On-line MARL algorithms learn a policy by directly interacting with the environment and using its experience to improve its behavior. When multiple-agents are involved, this means agents must also learn how to interact with other agents (either as teammates, opponents, or a combination of the two). Some examples of On-line MARL algorithms are:
 
 1. **Value Decomposition Networks (VDN)**:
    - VDN decomposes the team value function into a sum of individual agent value functions [6].
@@ -138,3 +175,15 @@ Find some papers from recent conferences and talk about what is the current SOTA
 [11] Jiang, M., Dmitriev, A., & Kuhnle, A. (2022). Offline multi-agent reinforcement learning with implicit constraint. arXiv preprint arXiv:2209.11698.
 
 [12] Yu, C., Velu, A., Vinitsky, E., Wang, Y., Bayen, A., & Wu, Y. (2021). The surprising effectiveness of PPO in cooperative, multi-agent games. arXiv preprint arXiv:2103.01955.
+
+[13] Oliehoek, F. A., & Amato, C. (2016). A concise introduction to decentralized POMDPs. Springer.
+
+[14] Shoham, Y., & Leyton-Brown, K. (2008). Multiagent systems: Algorithmic, game-theoretic, and logical foundations. Cambridge University Press.
+
+[15] Bernstein, D. S., Givan, R., Immerman, N., & Zilberstein, S. (2002). The complexity of decentralized control of Markov decision processes. Mathematics of operations research, 27(4), 819-840.
+
+[16] Shapley, L. S. (1953). Stochastic games. Proceedings of the national academy of sciences, 39(10), 1095-1100.
+
+[17] Sutton, R. S., & Barto, A. G. (2018). Reinforcement learning: An introduction. MIT press.
+
+[18] Zhang, K., Yang, Z., & Başar, T. (2021). Multi-agent reinforcement learning: A selective overview of theories and algorithms. Handbook of Reinforcement Learning and Control, 321-384.
