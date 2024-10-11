@@ -170,6 +170,33 @@ With the above single-agent concepts satisfied, the authors are able to show tha
    - OMAIC tackles the challenge of distribution shift in offline MARL (Jiang et al., 2022).
    - It introduces an implicit constraint to penalize out-of-distribution actions and encourages in-distribution actions.
 
+#### Challenges with Offline MARL
+1. However, collecting static data for offline MARL poses sig-
+nificant challenges, often requiring substantial time, exper-
+tise, and financial resources. This process typically involves
+human experts to check the relevance and accuracy of data,
+which not only makes it costly but also time-consuming.
+Hence, such static datasets usually lack the variability and
+complexity of real-world scenarios, resulting in a limited
+range of experiences for training MARL algorithms. This
+may lead to overfitting to the training data and poor gen-
+eralization in actual environments, ultimately stifling the
+learning process and restricting the potential of MARL al-
+gorithms to adapt effectively to real-world conditions. [https://openreview.net/pdf?id=Bs8uwhKaPO]
+   1. Improviement by augmenting: In order to tackle these problems, Laskin et al. (2020) and
+Sinha et al. (2022) have proposed the use of data augmenta-
+tion techniques in RL, which include introducing random
+variables into the original state space. The denoising diff [https://openreview.net/pdf?id=Bs8uwhKaPO]
+
+[https://arxiv.org/pdf/2005.01643] Offline reinforcement learning is a difficult problem for multiple reasons, some of which are reason-
+ably clear, and some of which might be a bit less clear. Arguably the most obvious challenge with
+offline reinforcement learning is that, because the learning algorithm must rely entirely on the static
+dataset D, there is no possibility of improving exploration: exploration is outside the scope of the
+algorithm, so if D does not contain transitions that illustrate high-reward regions of the state space, it
+may be impossible to discover those high-reward regions. However, because there is nothing that we
+can do to address this challenge, we will not spend any more time on it, and will instead assume that
+D adequately covers the space of high-reward transitions to make learning feasible.
+
 ## Applications of Multi-Agent Reinforcement Learning in Robotics
 
 Multi-Agent Reinforcement Learning (MARL) has found numerous applications in robotics, leveraging the power of collaborative learning and decision-making.
@@ -202,33 +229,6 @@ Multi-Agent Reinforcement Learning (MARL) has found numerous applications in rob
 These applications demonstrate the versatility of MARL in addressing complex robotics challenges that involve multiple agents, whether they are all robots or a mix of robots and humans. As MARL algorithms continue to advance, we can expect to see even more sophisticated and efficient multi-robot systems in various domains.
 
 ## (Time Permitting) In-Depth Exploration
-
-#### Challenges with Offline MARL
-1. However, collecting static data for offline MARL poses sig-
-nificant challenges, often requiring substantial time, exper-
-tise, and financial resources. This process typically involves
-human experts to check the relevance and accuracy of data,
-which not only makes it costly but also time-consuming.
-Hence, such static datasets usually lack the variability and
-complexity of real-world scenarios, resulting in a limited
-range of experiences for training MARL algorithms. This
-may lead to overfitting to the training data and poor gen-
-eralization in actual environments, ultimately stifling the
-learning process and restricting the potential of MARL al-
-gorithms to adapt effectively to real-world conditions. [https://openreview.net/pdf?id=Bs8uwhKaPO]
-   1. Improviement by augmenting: In order to tackle these problems, Laskin et al. (2020) and
-Sinha et al. (2022) have proposed the use of data augmenta-
-tion techniques in RL, which include introducing random
-variables into the original state space. The denoising diff [https://openreview.net/pdf?id=Bs8uwhKaPO]
-
-[https://arxiv.org/pdf/2005.01643] Offline reinforcement learning is a difficult problem for multiple reasons, some of which are reason-
-ably clear, and some of which might be a bit less clear. Arguably the most obvious challenge with
-offline reinforcement learning is that, because the learning algorithm must rely entirely on the static
-dataset D, there is no possibility of improving exploration: exploration is outside the scope of the
-algorithm, so if D does not contain transitions that illustrate high-reward regions of the state space, it
-may be impossible to discover those high-reward regions. However, because there is nothing that we
-can do to address this challenge, we will not spend any more time on it, and will instead assume that
-D adequately covers the space of high-reward transitions to make learning feasible. 
 
 [https://arxiv.org/pdf/2005.01643]
 
