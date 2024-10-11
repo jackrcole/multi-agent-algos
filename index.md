@@ -29,7 +29,7 @@ Multi-Agent Reinforcement Learning (MARL) is an extension of traditional Reinfor
 
 ## Formalization of MARL
 
-MARL can be formalized as an extension of the Markov Decision Process (MDP) used in single-agent RL. The formalization typically uses a Decentralized Partially Observable Markov Decision Process (Dec-POMDP) or a Stochastic Game framework [13] [14].
+MARL can be formalized as an extension of the Markov Decision Process (MDP) used in single-agent RL. MARL typically uses a Decentralized Partially Observable Markov Decision Process (Dec-POMDP) or a Stochastic Game framework [13] [14].
 
 1. **Dec-POMDP**:
    A Dec-POMDP is defined by a tuple ($I$, $S$, $A_{i \in I}$, $O_{i \in I}$, $P$, $R$, $\gamma$) where:
