@@ -226,7 +226,6 @@ MARL has found numerous applications in robotics, leveraging the power of collab
    - Applications include assistive robotics, collaborative manufacturing, and service robots.
    - Example: Nikolaidis et al. (2017) used MARL to enable robots to adapt their behavior based on human preferences in collaborative tasks.
 
-
 ## (Time Permitting) In-Depth Exploration
 
 [https://arxiv.org/pdf/2005.01643]
