@@ -123,9 +123,9 @@ Agents using On-line MARL algorithms learn a policy by directly interacting with
 
    - MAPPO uses a centralized critic to estimate the advantage function, which takes into account the global state and actions of all agents.
 
-### Off-Line MARL
+### Offline MARL
 
-Off-line MARL algorithms learn from a fixed dataset of experiences without direct interaction with the environment. Some examples of Off-line MARL algorithms include:
+Conventionally reinforcement learning algorithims require iterative interaction with the enviornment to collect information. And using that collected information to improve the policy. These are all characteristic of an **online learning paradigm.** However, in many cases, this type of online interaction is impractical. There are many situations in which data collection in such a paradigm would be expensive or dangerous (e.g., autonomous driving and healthcare). Beyond this, we may be interacting with a complex domain and want to effectively generalize our agents, which requires large datasets. All of these motivate the idea of an **offline learning paradigm.** [Levine 2020]
 
 1. **BCQ for Multi-Agent RL (MA-BCQ)**:
    - MA-BCQ adapts the single-agent Batch Constrained Q-learning (BCQ) to multi-agent settings (Yang et al., 2021).
@@ -133,19 +133,76 @@ Off-line MARL algorithms learn from a fixed dataset of experiences without direc
 
 2. **Multi-Agent Constrained Policy Optimization (MACPO)**:
    - MACPO extends Constrained Policy Optimization to multi-agent scenarios for offline learning (Yang et al., 2022).
+Offline multi-agent reinforcement algorithms learn from a fixed dataset of experiences without direct interaction with the environment. In this section, we will survey some 
+offline MARL algorithms.
+
+#### BCQ for Multi-Agent RL (MA-BCQ)
+   - MA-BCQ adapts the single-agent Batch Constrained Q-learning (BCQ) to multi-agent settings [9].
+   - It addresses the extrapolation error in offline RL by constraining the learned policy to be close to the behavior policy in the dataset.
+
+#### Multi-Agent Constrained Policy Optimization (MACPO) 
+
+At a high-level multi-agent constraiend policy optimization (MACPO) extends the single agent concept of constrained policy optimization (CPO) to multi-agent scenarios. This algorithm is motivated by the drive to develop safe policies for multi-agent systems. This can often be difficult because the individual agent has to consider both it's own safety constraints, but also the constraints of others so that collectively the joint behavior is guaranteed to be safe. [Gu 2021]
+
+To formulate the problem, we first define the general framework that will be used for this discussion. A safe MARL problem can be thought of as a constrained Markov game $\langle\mathcal{N}, \mathcal{S}, \mathbf{\mathcal{A}}, p, \rho^0, \gamma, R, \mathbf{C}, \mathbf{c}\rangle$. 
+* $\mathcal{N} = \{1,\ldots,n\}$ is the set of agents
+* $\mathcal{S}$ is the state space
+* $\mathbf{\mathcal{A}} = \Pi_{i=1}^n \mathcal{A}^i$ is the product of the agents' action spaces (joint action space)
+* $p : S \times \mathbf{\mathcal{A}} \times S \rightarrow \mathbb{R}$ is the joint reward function
+* $\rho^0$ is the initial state distribution
+* $\gamma \in [0, 1)$ is the discount factor
+* $R: \mathcal{S} \times \mathbf{\mathcal{A}} \rightarrow \mathbb{R}$ is the joint reward function 
+* $\mathbf{C} = \{C_j^i\}_{i \le j \le m^i}^{i \in \mathcal{N}}$ is the set of sets of cost functions, where every agent $i$ has $m^i$ cost functions of the form $C_j^i : \mathcal{S} \times \mathcal{A}^i \rightarrow \mathbb{R}$
+* $\mathbf{c} = \{c_j^i\}_{i \le j \le m^i}^{i \in \mathcal{N}}$ is the set of corresponding cost-constrainign values for the above cost functions. 
+
+Note: that in this work (Gu, 2021), the authors consider a fully-cooperative setting meaning all agents share the same reward function. 
+
+With the background of the MDP established, let us look at the formulation of the problem. The algorithm builds upon the concept of multi-agent trust region learning and constrained policy optimization to solve these above presented constrained Markov games. 
+* **Trust-Region Learning** [Schulman 2017] refers to the concept of optimizing the function by maintaining small movements to allow the agent to interact within a region that has been deemed "safe." Additionally, this allows to simplify the theoretical algorithm to a more manageable, practical algorithm within this trust region. That is, we are able to optimize a surrogate function rather than the original more complicated function. 
+* **Constrained Policy Optimization** [Achiam 2017] is a technique that guarantees constraint satisfaction throughout the training of a model and works for arbitrary policy classes (e.g. including neural networks).
+
+With the above single-agent concepts satisfied, the authors are able to show that the joint policies in a MACPO algorithm will have a monotonic imporvement property (that is the reward performance monotonically increases and improves) and the policies satisfy the safety constraints. 
+
+   - MACPO extends Constrained Policy Optimization to multi-agent scenarios for offline learning [10].
    - It uses a trust region approach to ensure policy improvement while satisfying constraints.
 
 3. **Offline Multi-Agent Reinforcement Learning with Implicit Constraint (OMAIC)**:
    - OMAIC tackles the challenge of distribution shift in offline MARL (Jiang et al., 2022).
    - It introduces an implicit constraint to penalize out-of-distribution actions and encourages in-distribution actions.
 
-## (Time Permitting) In-Depth Exploration
+#### Important Applications of Offline MARL
 
-Explore 1 Algorithm from above in-depth
+#### Challenges with Offline MARL
+1. However, collecting static data for offline MARL poses sig-
+nificant challenges, often requiring substantial time, exper-
+tise, and financial resources. This process typically involves
+human experts to check the relevance and accuracy of data,
+which not only makes it costly but also time-consuming.
+Hence, such static datasets usually lack the variability and
+complexity of real-world scenarios, resulting in a limited
+range of experiences for training MARL algorithms. This
+may lead to overfitting to the training data and poor gen-
+eralization in actual environments, ultimately stifling the
+learning process and restricting the potential of MARL al-
+gorithms to adapt effectively to real-world conditions. [https://openreview.net/pdf?id=Bs8uwhKaPO]
+   1. Improviement by augmenting: In order to tackle these problems, Laskin et al. (2020) and
+Sinha et al. (2022) have proposed the use of data augmenta-
+tion techniques in RL, which include introducing random
+variables into the original state space. The denoising diff [https://openreview.net/pdf?id=Bs8uwhKaPO]
 
-## (Time Permitting) Current SOTA
+[https://arxiv.org/pdf/2005.01643] Offline reinforcement learning is a difficult problem for multiple reasons, some of which are reason-
+ably clear, and some of which might be a bit less clear. Arguably the most obvious challenge with
+offline reinforcement learning is that, because the learning algorithm must rely entirely on the static
+dataset D, there is no possibility of improving exploration: exploration is outside the scope of the
+algorithm, so if D does not contain transitions that illustrate high-reward regions of the state space, it
+may be impossible to discover those high-reward regions. However, because there is nothing that we
+can do to address this challenge, we will not spend any more time on it, and will instead assume that
+D adequately covers the space of high-reward transitions to make learning feasible. 
 
-Find some papers from recent conferences and talk about what is the current SOTA
+[https://arxiv.org/pdf/2005.01643]
+
+#### Open Research Directions and Questions
+
 
 ## References
 
@@ -180,3 +237,11 @@ Yang, Y., Tutunov, R., Sakulwongtana, P., & Ammar, H. B. (2021). Project-based m
 Yu, C., Velu, A., Vinitsky, E., Wang, Y., Bayen, A., & Wu, Y. (2021). The surprising effectiveness of PPO in cooperative, multi-agent games. arXiv preprint arXiv:2103.01955.
 
 Zhang, K., Yang, Z., & Başar, T. (2021). Multi-agent reinforcement learning: A selective overview of theories and algorithms. Handbook of Reinforcement Learning and Control, 321-384.
+
+[Levine 2020] https://arxiv.org/abs/2005.01643 
+
+[Gu 2021] https://arxiv.org/abs/2110.02793
+
+[Schulman 2017] https://arxiv.org/pdf/1502.05477 
+
+[Achiam 2017] https://arxiv.org/pdf/1705.10528
