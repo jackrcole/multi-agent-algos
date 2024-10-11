@@ -199,20 +199,20 @@ D adequately covers the space of high-reward transitions to make learning feasib
 
 ## Applications of Multi-Agent Reinforcement Learning in Robotics
 
-Multi-Agent Reinforcement Learning (MARL) has found numerous applications in robotics, leveraging the power of collaborative learning and decision-making.
+MARL has found numerous applications in robotics, leveraging the power of collaborative learning and decision-making.
 
 1. **Swarm Robotics**:
    - MARL enables large groups of simple robots to exhibit complex collective behaviors.
-   - Search and rescue operations, environmental monitoring, and collective construction tasks can all make use of MARL.
+   - Search and rescue operations, environmental monitoring, and collective construction tasks are all applicable areas.
    - Example: Hüttenrauch et al. (2019) used MARL to train a swarm of robots for cooperative object transportation.
 
 2. **Autonomous Vehicles**:
-   - MARL helps in coordinating multiple autonomous vehicles for traffic management and collision avoidance.
+   - MARL also helps in coordinating multiple autonomous vehicles for traffic management and collision avoidance.
    - It's used in developing adaptive traffic light control systems and optimizing fleet management.
    - Example: Zhou et al. (2021) applied MARL for simulating autonomous vehicles interactions.
 
 3. **Robotic Manipulation**:
-   - MARL enables multiple robotic arms to collaborate on complex manipulation tasks.
+   - Multiple robotic arms can collaborate on complex manipulation tasks using MARL.
    - Applications include assembly lines, warehouse automation, and surgical robotics.
    - Example: Gu et al. (2017) used MARL to train multiple robotic arms for collaborative object manipulation tasks.
 
@@ -222,11 +222,10 @@ Multi-Agent Reinforcement Learning (MARL) has found numerous applications in rob
    - Example: Qie et al. (2019) applied MARL for coordinating multiple UAVs in search and rescue missions.
 
 5. **Human-Robot Interaction**:
-   - MARL is used to develop robots that can effectively collaborate with humans in shared workspaces.
+   - Robots that can effectively collaborate with humans in shared workspaces often use MARL.
    - Applications include assistive robotics, collaborative manufacturing, and service robots.
    - Example: Nikolaidis et al. (2017) used MARL to enable robots to adapt their behavior based on human preferences in collaborative tasks.
 
-These applications demonstrate the versatility of MARL in addressing complex robotics challenges that involve multiple agents, whether they are all robots or a mix of robots and humans. As MARL algorithms continue to advance, we can expect to see even more sophisticated and efficient multi-robot systems in various domains.
 
 ## (Time Permitting) In-Depth Exploration
 
