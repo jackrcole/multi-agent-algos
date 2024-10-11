@@ -139,6 +139,37 @@ Off-line MARL algorithms learn from a fixed dataset of experiences without direc
    - OMAIC tackles the challenge of distribution shift in offline MARL (Jiang et al., 2022).
    - It introduces an implicit constraint to penalize out-of-distribution actions and encourages in-distribution actions.
 
+## Applications of Multi-Agent Reinforcement Learning in Robotics
+
+Multi-Agent Reinforcement Learning (MARL) has found numerous applications in robotics, leveraging the power of collaborative learning and decision-making.
+
+1. **Swarm Robotics**:
+   - MARL enables large groups of simple robots to exhibit complex collective behaviors.
+   - Search and rescue operations, environmental monitoring, and collective construction tasks can all make use of MARL.
+   - Example: Hüttenrauch et al. (2019) used MARL to train a swarm of robots for cooperative object transportation.
+
+2. **Autonomous Vehicles**:
+   - MARL helps in coordinating multiple autonomous vehicles for traffic management and collision avoidance.
+   - It's used in developing adaptive traffic light control systems and optimizing fleet management.
+   - Example: Zhou et al. (2021) applied MARL for simulating autonomous vehicles interactions.
+
+3. **Robotic Manipulation**:
+   - MARL enables multiple robotic arms to collaborate on complex manipulation tasks.
+   - Applications include assembly lines, warehouse automation, and surgical robotics.
+   - Example: Gu et al. (2017) used MARL to train multiple robotic arms for collaborative object manipulation tasks.
+
+4. **Drone Coordination**:
+   - MARL algorithms help in coordinating multiple drones for tasks like area coverage, surveillance, and package delivery.
+   - It's particularly useful in scenarios requiring dynamic task allocation and collision avoidance.
+   - Example: Qie et al. (2019) applied MARL for coordinating multiple UAVs in search and rescue missions.
+
+5. **Human-Robot Interaction**:
+   - MARL is used to develop robots that can effectively collaborate with humans in shared workspaces.
+   - Applications include assistive robotics, collaborative manufacturing, and service robots.
+   - Example: Nikolaidis et al. (2017) used MARL to enable robots to adapt their behavior based on human preferences in collaborative tasks.
+
+These applications demonstrate the versatility of MARL in addressing complex robotics challenges that involve multiple agents, whether they are all robots or a mix of robots and humans. As MARL algorithms continue to advance, we can expect to see even more sophisticated and efficient multi-robot systems in various domains.
+
 ## (Time Permitting) In-Depth Exploration
 
 Explore 1 Algorithm from above in-depth
@@ -180,3 +211,13 @@ Yang, Y., Tutunov, R., Sakulwongtana, P., & Ammar, H. B. (2021). Project-based m
 Yu, C., Velu, A., Vinitsky, E., Wang, Y., Bayen, A., & Wu, Y. (2021). The surprising effectiveness of PPO in cooperative, multi-agent games. arXiv preprint arXiv:2103.01955.
 
 Zhang, K., Yang, Z., & Başar, T. (2021). Multi-agent reinforcement learning: A selective overview of theories and algorithms. Handbook of Reinforcement Learning and Control, 321-384.
+
+Hüttenrauch, M., Šošić, A., & Neumann, G. (2019). Deep reinforcement learning for swarm systems. Journal of Machine Learning Research, 20(54), 1-31.
+
+Zhou, M., Luo, J., Villella, J., Yang, Y., Rusu, D., Miao, J., ... & Wang, J. (2021, October). Smarts: An open-source scalable multi-agent rl training school for autonomous driving. In Conference on robot learning (pp. 264-285). PMLR.
+
+Gu, S., Holly, E., Lillicrap, T., & Levine, S. (2017, May). Deep reinforcement learning for robotic manipulation with asynchronous off-policy updates. In 2017 IEEE international conference on robotics and automation (ICRA) (pp. 3389-3396). IEEE.
+
+Qie, H., Shi, D., Shen, T., Xu, X., Li, Y., & Wang, L. (2019). Joint optimization of multi-UAV target assignment and path planning based on multi-agent reinforcement learning. IEEE access, 7, 146264-146272.
+
+Nikolaidis, S., Hsu, D., & Srinivasa, S. (2017). Human-robot mutual adaptation in collaborative tasks: Models and experiments. The International Journal of Robotics Research, 36(5-7), 618-634.
