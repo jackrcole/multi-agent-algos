@@ -278,10 +278,19 @@ Gu, S., Holly, E., Lillicrap, T., & Levine, S. (2017, May). Deep reinforcement l
 Qie, H., Shi, D., Shen, T., Xu, X., Li, Y., & Wang, L. (2019). Joint optimization of multi-UAV target assignment and path planning based on multi-agent reinforcement learning. IEEE access, 7, 146264-146272.
 
 Nikolaidis, S., Hsu, D., & Srinivasa, S. (2017). Human-robot mutual adaptation in collaborative tasks: Models and experiments. The International Journal of Robotics Research, 36(5-7), 618-634.
-[Levine 2020] https://arxiv.org/abs/2005.01643 
+
+<!-- [Levine 2020] https://arxiv.org/abs/2005.01643 
 
 [Gu 2021] https://arxiv.org/abs/2110.02793
 
 [Schulman 2017] https://arxiv.org/pdf/1502.05477 
 
-[Achiam 2017] https://arxiv.org/pdf/1705.10528
+[Achiam 2017] https://arxiv.org/pdf/1705.10528 -->
+
+Levine, S., Kumar, A., Tucker, G., & Fu, J. (2020). Offline reinforcement learning: Tutorial, review, and perspectives on open problems. arXiv preprint arXiv:2005.01643.
+
+Gu, S., Kuba, J. G., Wen, M., Chen, R., Wang, Z., Tian, Z., ... & Yang, Y. (2021). Multi-agent constrained policy optimisation. arXiv preprint arXiv:2110.02793.
+
+Schulman, J. (2015). Trust Region Policy Optimization. arXiv preprint arXiv:1502.05477.
+
+Achiam, J., Held, D., Tamar, A., & Abbeel, P. (2017, July). Constrained policy optimization. In International conference on machine learning (pp. 22-31). PMLR.
