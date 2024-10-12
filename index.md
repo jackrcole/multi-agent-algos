@@ -196,7 +196,35 @@ may be impossible to discover those high-reward regions. However, because there 
 can do to address this challenge, we will not spend any more time on it, and will instead assume that
 D adequately covers the space of high-reward transitions to make learning feasible.
 
-## Applications of MARL in Robotics
+## Applications of MARL
+
+MARL has found applications in many different areas due to the power and flexibility inherent to modelling complex real-world interactions.
+
+1. **Stackelberg Security Games**:
+   - A leader (defender) and followers (attackers) in a sequential game.
+   - Modelling and solve security resource allocation problems is a natural use-case for MARL.
+   - Example: Bandyopadhyay et al. (2022) used MARL to model deforestation patterns in Indonesia.
+
+2. **Game Theory and Strategy Games**:
+   - MARL has been successfully applied to complex strategy games like Go, Chess, and Poker.
+   - Example: DeepMind's AlphaGo Zero used self-play, a form of multi-agent learning, to achieve superhuman performance in Go (Silver et al., 2017).
+
+3. **Financial Markets**:
+   - Algorithmic trading and portfolio management often involves many agents making decisions.
+   - It can model complex market dynamics and interactions between multiple traders.
+   - Example: Shevandi & Khedmati (2022) used MARL for developing adaptive trading strategies in simulated financial markets.
+
+4. **Network Security**:
+   - Adaptive cybersecurity systems often model multiple agents.
+   - They can model the interactions between attackers and defenders in network security scenarios.
+   - Example: Wilson et al. (2024) applied MARL to simulate and counter various types of network attacks.
+
+5. **Supply Chain Management**:
+   - Optimizing complex supply chains with multiple stakeholders modeled as agents.
+   - It can handle inventory management, logistics, and demand forecasting in a coordinated manner.
+   - Example: Jiang et al. (2009) used MARL for adaptive inventory management.
+
+### Robotics
 
 MARL has found numerous applications in robotics, leveraging the power of collaborative learning and decision-making.
 
@@ -256,6 +284,8 @@ Addressing these open questions will lead more robust, efficient, and widely app
 [https://arxiv.org/pdf/2005.01643]
 
 ## References
+
+Bandyopadhyay, S., Zhu, C., Daniel, P., Morrison, J., Shay, E., & Dickerson, J. (2022). Targets in Reinforcement Learning to solve Stackelberg Security Games. arXiv preprint arXiv:2211.17132.
 
 Bernstein, D. S., Givan, R., Immerman, N., & Zilberstein, S. (2002). The complexity of decentralized control of Markov decision processes. Mathematics of operations research, 27(4), 819-840.
 
@@ -318,3 +348,11 @@ Achiam, J., Held, D., Tamar, A., & Abbeel, P. (2017, July). Constrained policy o
 Rutherford, A., Ellis, B., Gallici, M., Cook, J., Lupu, A., Ingvarsson, G., ... & Foerster, J. N. (2023). Jaxmarl: Multi-agent rl environments in jax. arXiv preprint arXiv:2311.10090.
 
 Jiang, J., & Lu, Z. (2023). Offline Decentralized Multi-Agent Reinforcement Learning. In ECAI (pp. 1148-1155).
+
+Silver, D., Schrittwieser, J., Simonyan, K., Antonoglou, I., Huang, A., Guez, A., ... & Hassabis, D. (2017). Mastering the game of go without human knowledge. nature, 550(7676), 354-359.
+
+Shavandi, A., & Khedmati, M. (2022). A multi-agent deep reinforcement learning framework for algorithmic trading in financial markets. Expert Systems with Applications, 208, 118124.
+
+Wilson, A., Menzies, R., Morarji, N., Foster, D., Mont, M. C., Turkbeyler, E., & Gralewski, L. (2024). Multi-Agent Reinforcement Learning for Maritime Operational Technology Cyber Security. arXiv preprint arXiv:2401.10149.
+
+Jiang, C., & Sheng, Z. (2009). Case-based reinforcement learning for dynamic inventory control in a multi-agent supply-chain system. Expert Systems with Applications, 36(3), 6520-6526.
