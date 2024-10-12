@@ -232,6 +232,11 @@ MARL has found applications in many different areas due to the power and flexibi
    - It can handle inventory management, logistics, and demand forecasting in a coordinated manner.
    - Example: Jiang et al. (2009) used MARL for adaptive inventory management.
 
+<div style="text-align: center;">
+  <img src="images/alphago.png" alt="AlphaGo vs Lee Sedol" style="width: 80%; max-width: 600px;">
+  <p><em>Figure 2: AlphaGo Zero, developed by DeepMind, uses self-play, a MARL technique. Credit: Silver et. al. (2017).</em></p>
+</div>
+
 ### Robotics
 
 MARL has found numerous applications in robotics, leveraging the power of collaborative learning and decision-making. MARL is quite important in decision-making for robotics as most scenarios that we think of modeling in the world require the interaction between multiple subjects/agents. If we would like to deploy robots into the world successfully, we need to make sure they are capable of making the right decision and acting properly in the multi-agent ecosystem.
@@ -293,7 +298,7 @@ Addressing these open questions will lead more robust, efficient, and widely app
 
 <div style="text-align: center;">
   <img src="images/jax-marl.png" alt="JAXMARL Framework" style="width: 80%; max-width: 600px;">
-  <p><em>Figure 2: JAXMARL addresses scalability concerns with JAX accelerated computation. Credit: Rutherford et. al. (2023).</em></p>
+  <p><em>Figure 3: JAXMARL addresses scalability concerns with JAX accelerated computation. Credit: Rutherford et. al. (2023).</em></p>
 </div>
 
 ## References
