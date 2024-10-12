@@ -127,7 +127,7 @@ Agents using Online MARL algorithms learn a policy by directly interacting with 
 
 Conventionally, reinforcement learning algorithms require iterative interaction with the environment to collect information. And using that collected information to improve the policy. These are all characteristic of an **online learning paradigm.** However, in many cases, this type of online interaction is impractical. There are many situations in which data collection in such a paradigm would be expensive or dangerous (e.g., autonomous driving and healthcare). Beyond this, we may be interacting with a complex domain and want to effectively generalize our agents, which requires large datasets. All of these motivate the idea of an **offline learning paradigm.** [Levine 2020]
 
-1. **BCQ for Multi-Agent RL (MA-BCQ)**:
+#### BCQ for Multi-Agent RL (MA-BCQ)
    - MA-BCQ adapts the single-agent Batch Constrained Q-learning (BCQ) to multi-agent settings (Yang et al., 2021).
    - It addresses the extrapolation error in offline RL by constraining the learned policy to be close to the behavior policy in the dataset.
    - MA-BCQ extends the BCQ algorithm to handle multiple agents by introducing a centralized critic and decentralized actors.
@@ -136,11 +136,6 @@ Conventionally, reinforcement learning algorithms require iterative interaction 
      1. Train a generative model to capture the behavior policy distribution.
      2. Learn a Q-function that evaluates state-action pairs while constraining actions to be similar to those in the dataset.
    - This formulation helps balance between maximizing the Q-value and staying close to the behavior policy, which is crucial for offline learning in multi-agent settings.
-
-2. **Multi-Agent Constrained Policy Optimization (MACPO)**:
-   - MACPO extends Constrained Policy Optimization to multi-agent scenarios for offline learning (Yang et al., 2022).
-Offline multi-agent reinforcement algorithms learn from a fixed dataset of experiences without direct interaction with the environment. In this section, we will survey some 
-offline MARL algorithms.
 
 #### Multi-Agent Constrained Policy Optimization (MACPO) 
 
@@ -165,9 +160,22 @@ With the background of the MDP established, let us look at the formulation of th
 
 With the above single-agent concepts satisfied, the authors are able to show that the joint policies in a MACPO algorithm will have a monotonic imporvement property (that is the reward performance monotonically increases and improves) and the policies satisfy the safety constraints. 
 
-   - MACPO extends Constrained Policy Optimization to multi-agent scenarios for offline learning [10].
-   - It uses a trust region approach to ensure policy improvement while satisfying constraints.
+This can all be summarized by the central equation from Gu 2021: 
 
+$$J_j^i(\overline{\pi}) \le J_j^i(\pi) + L_{j,\pi}^i(\overline{\pi}^i) + \nu_j^i\Sigma_{h=1}^nD_{KL}^{max}(\pi^h, \overline{\pi}^h)$$
+
+While this looks complicated, we can break it down and think about it like this: 
+* $pi$ and $\overline{\pi}$ are joint policies, with $\overline{pi}$ being the "new" policy. 
+* $J_j^i(\overline{\pi}) - J_j^i(\pi)$ is the change in the $j$th cost of the agent $i$
+* $L_{j,\pi}^i(\overline{\pi}^i)$ is the surrogate return function.
+* As long as the distance between these two values is sufficiently small, then the change in the cost of the agent is controlled only by the surrogate.
+
+The algorithm then works by sequentially updating each of these policies as we are guaranteed the above assumptions will hold. So, this turns into a similar situation the constrained policy optimization, but with sequential updates for each of the agents involved. 
+
+Thus, to summarize, the authors created a new algorithm MACPO, which showcased the following: 
+- formulate this MARL problem as a safe MARL problem in a constrained Markov game 
+- they solved it using a policy optimization method which leveraged the constraiend policy optimization and multi-agent trust region learning concepts. 
+- and they are able to provide theoreticl guarantees of monotonic improvement in reward and continual satisfaction of safety constraints at every iteration 
 
 #### Challenges with Offline MARL
 1. However, collecting static data for offline MARL poses sig-
