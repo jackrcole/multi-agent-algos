@@ -63,11 +63,11 @@ MARL can be formalized as an extension of the Markov Decision Process (MDP) used
 
 ## Algorithms
 
-MARL algorithms can be broadly categorized into two types: On-line and Off-line.
+MARL algorithms can be broadly categorized into two types: Online and Offline.
 
-### On-Line MARL
+### Online MARL
 
-Agents using On-line MARL algorithms learn a policy by directly interacting with the environment and using its experience to improve its behavior. When multiple-agents are involved, this means agents must also learn how to interact with other agents (either as teammates, opponents, or a combination of the two). Some examples of On-line MARL algorithms are:
+Agents using Online MARL algorithms learn a policy by directly interacting with the environment and using its experience to improve its behavior. When multiple agents are involved, this means agents must also learn how to interact with other agents (either as teammates, opponents, or a combination of the two). Some examples of Online MARL algorithms are:
 
 1. **Value Decomposition Networks (VDN)**:
    - VDN decomposes the team value function into a sum of individual agent value functions (Sunehag et al., 2018).
@@ -125,7 +125,7 @@ Agents using On-line MARL algorithms learn a policy by directly interacting with
 
 ### Offline MARL
 
-Conventionally reinforcement learning algorithims require iterative interaction with the enviornment to collect information. And using that collected information to improve the policy. These are all characteristic of an **online learning paradigm.** However, in many cases, this type of online interaction is impractical. There are many situations in which data collection in such a paradigm would be expensive or dangerous (e.g., autonomous driving and healthcare). Beyond this, we may be interacting with a complex domain and want to effectively generalize our agents, which requires large datasets. All of these motivate the idea of an **offline learning paradigm.** [Levine 2020]
+Conventionally, reinforcement learning algorithms require iterative interaction with the environment to collect information. And using that collected information to improve the policy. These are all characteristic of an **online learning paradigm.** However, in many cases, this type of online interaction is impractical. There are many situations in which data collection in such a paradigm would be expensive or dangerous (e.g., autonomous driving and healthcare). Beyond this, we may be interacting with a complex domain and want to effectively generalize our agents, which requires large datasets. All of these motivate the idea of an **offline learning paradigm.** [Levine 2020]
 
 1. **BCQ for Multi-Agent RL (MA-BCQ)**:
    - MA-BCQ adapts the single-agent Batch Constrained Q-learning (BCQ) to multi-agent settings (Yang et al., 2021).
@@ -168,7 +168,7 @@ With the above single-agent concepts satisfied, the authors are able to show tha
 
 3. **Offline Multi-Agent Reinforcement Learning with Implicit Constraint (OMAIC)**:
    - OMAIC tackles the challenge of distribution shift in offline MARL (Jiang et al., 2022).
-   - It introduces an implicit constraint to penalize out-of-distribution actions and encourages in-distribution actions.
+   - It introduces an implicit constraint to penalize out-of-distribution actions and encourage in-distribution actions.
 
 #### Challenges with Offline MARL
 1. However, collecting static data for offline MARL poses sig-
