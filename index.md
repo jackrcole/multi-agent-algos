@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Survey of Multi-Agent Reinforcement Learning Algorithms
-description: "Mini-project #1 for CMSC 818B: Decision-Making for Robotics (F24)"
+description: "Mini-project #1 (CMSC 818B: Decision-Making for Robotics (F24) - Jack Cole and Bhuvanesh Murali"
 ---
 
 ## Introduction to MARL
@@ -137,6 +137,19 @@ Conventionally, reinforcement learning algorithms require iterative interaction 
      2. Learn a Q-function that evaluates state-action pairs while constraining actions to be similar to those in the dataset.
    - This formulation helps balance between maximizing the Q-value and staying close to the behavior policy, which is crucial for offline learning in multi-agent settings.
 
+Briefly, we can look at what the single-agent BCQ algorithm policy [Fujimoto 2019] looks like for a visual to get intuition about the multi-agent case: 
+
+$$\pi(s) = \argmax_{a_i+\xi_\phi(s, a_i, \Phi)} Q_\theta(s, a_i+\xi_\phi(s, a_i, \Phi)), \{a_i \sim G_\omega(s)\}_{i=1}^n$$
+
+We can understand this by seeing that: 
+* $G_\omega$ is the generative model 
+* $Q_\theta$ is the value function 
+* $\xi_\phi(s, a_i, \Phi)$ is the perturbation model which outputs an adjustment to an action a in the range $[-\Phi, \Phi]$. This is used to improve the diversity of the seen actions, while staying close to distribution. 
+
+This is extended as discussed above into the multi-agent scenario. 
+
+However, Yang et. al. 2021 notes that while BCQ works well in single-agent scenarios, the unseen state-action pairs grow exponentially as the number of agent increases and so the extrapolation error accumulates and grows very quickly resulting in poor performance by BCQ in multi-agent settings. And as a result, they propose a newer algorithm ICQ (which we will not explore in this post). 
+
 #### Multi-Agent Constrained Policy Optimization (MACPO) 
 
 At a high-level multi-agent constraiend policy optimization (MACPO) extends the single agent concept of constrained policy optimization (CPO) to multi-agent scenarios. This algorithm is motivated by the drive to develop safe policies for multi-agent systems. This can often be difficult because the individual agent has to consider both it's own safety constraints, but also the constraints of others so that collectively the joint behavior is guaranteed to be safe. [Gu 2021]
@@ -165,7 +178,7 @@ This can all be summarized by the central equation from Gu 2021:
 $$J_j^i(\overline{\pi}) \le J_j^i(\pi) + L_{j,\pi}^i(\overline{\pi}^i) + \nu_j^i\Sigma_{h=1}^nD_{KL}^{max}(\pi^h, \overline{\pi}^h)$$
 
 While this looks complicated, we can break it down and think about it like this: 
-* $pi$ and $\overline{\pi}$ are joint policies, with $\overline{pi}$ being the "new" policy. 
+* $\pi$ and $\overline{\pi}$ are joint policies, with $\overline{\pi}$ being the "new" policy. 
 * $J_j^i(\overline{\pi}) - J_j^i(\pi)$ is the change in the $j$th cost of the agent $i$
 * $L_{j,\pi}^i(\overline{\pi}^i)$ is the surrogate return function.
 * As long as the distance between these two values is sufficiently small, then the change in the cost of the agent is controlled only by the surrogate.
@@ -178,31 +191,9 @@ Thus, to summarize, the authors created a new algorithm MACPO, which showcased t
 - and they are able to provide theoreticl guarantees of monotonic improvement in reward and continual satisfaction of safety constraints at every iteration 
 
 #### Challenges with Offline MARL
-1. However, collecting static data for offline MARL poses sig-
-nificant challenges, often requiring substantial time, exper-
-tise, and financial resources. This process typically involves
-human experts to check the relevance and accuracy of data,
-which not only makes it costly but also time-consuming.
-Hence, such static datasets usually lack the variability and
-complexity of real-world scenarios, resulting in a limited
-range of experiences for training MARL algorithms. This
-may lead to overfitting to the training data and poor gen-
-eralization in actual environments, ultimately stifling the
-learning process and restricting the potential of MARL al-
-gorithms to adapt effectively to real-world conditions. [https://openreview.net/pdf?id=Bs8uwhKaPO]
-   1. Improviement by augmenting: In order to tackle these problems, Laskin et al. (2020) and
-Sinha et al. (2022) have proposed the use of data augmenta-
-tion techniques in RL, which include introducing random
-variables into the original state space. The denoising diff [https://openreview.net/pdf?id=Bs8uwhKaPO]
-
-[https://arxiv.org/pdf/2005.01643] Offline reinforcement learning is a difficult problem for multiple reasons, some of which are reason-
-ably clear, and some of which might be a bit less clear. Arguably the most obvious challenge with
-offline reinforcement learning is that, because the learning algorithm must rely entirely on the static
-dataset D, there is no possibility of improving exploration: exploration is outside the scope of the
-algorithm, so if D does not contain transitions that illustrate high-reward regions of the state space, it
-may be impossible to discover those high-reward regions. However, because there is nothing that we
-can do to address this challenge, we will not spend any more time on it, and will instead assume that
-D adequately covers the space of high-reward transitions to make learning feasible.
+While offline MARL proposes the ideas that will be beneficial in multi-agent settings, the reality is that they at the moment it faces challenges and falls short in several ways. 
+1. **Data Collection** - Collecting static data is a significant challenge. This has a huge time cost, requires expertise, etc. It often requires human experts to manually comb through the data checking for relevance and accuracy. [Oh 2024]
+2. **Model Generalization** - Due to this expensive data collection procedure, we often have datasets that are lacking in variability and complexity. These are both characteristic sof real-world scenarios. And since our data is so limited, offline MARL algorithms may not be exposed to the range of full experiences they ned to be robustly trained. This may lead to overfitting to the training data nd poor generalization. [Oh 2024]
 
 ## Applications of MARL
 
@@ -234,7 +225,7 @@ MARL has found applications in many different areas due to the power and flexibi
 
 ### Robotics
 
-MARL has found numerous applications in robotics, leveraging the power of collaborative learning and decision-making.
+MARL has found numerous applications in robotics, leveraging the power of collaborative learning and decision-making. MARL is quite important in decision-making for robotics as most scenarios that we think of modeling in the world require the interaction between multiple subjects/agents. If we would like to deploy robots into the world successfully, we need to make sure they are capable of making the right decision and acting properly in the multi-agent ecosystem. 
 
 1. **Swarm Robotics**:
    - MARL enables large groups of simple robots to exhibit complex collective behaviors.
@@ -285,11 +276,11 @@ Despite significant progress in MARL, several open research questions remain. Th
    - How can MARL algorithms be designed to effectively handle teams of agents with different capabilities or objectives?
    - What techniques can be developed to optimize the composition and coordination of heterogeneous agent teams?
 
+6. **Data Quality and Augmentation**
+   - What are effective ways to augment offline datasets for offline training paradigms? 
+   - How do we do this efficiently and reduce the cost to gather and generate data that exist today? 
+
 Addressing these open questions will lead more robust, efficient, and widely applicable multi-agent systems.
-
-## (Time Permitting) In-Depth Exploration
-
-[https://arxiv.org/pdf/2005.01643]
 
 ## References
 
@@ -364,3 +355,7 @@ Shavandi, A., & Khedmati, M. (2022). A multi-agent deep reinforcement learning f
 Wilson, A., Menzies, R., Morarji, N., Foster, D., Mont, M. C., Turkbeyler, E., & Gralewski, L. (2024). Multi-Agent Reinforcement Learning for Maritime Operational Technology Cyber Security. arXiv preprint arXiv:2401.10149.
 
 Jiang, C., & Sheng, Z. (2009). Case-based reinforcement learning for dynamic inventory control in a multi-agent supply-chain system. Expert Systems with Applications, 36(3), 6520-6526.
+
+Scott Fujimoto, David Meger, and Doina Precup. Off-policy deep reinforce- ment learning without exploration, 2019.
+
+Jihwan Oh, Sungnyun Kim, Gahee Kim, SeongHwan Kim, and Se-Young Yun. Diffusion-based episodes augmentation for offline multi-agent rein- forcement learning. In ICML 2024 Workshop on Structured Probabilistic Inference & Generative Modeling, 2024.
