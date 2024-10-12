@@ -197,7 +197,7 @@ may be impossible to discover those high-reward regions. However, because there 
 can do to address this challenge, we will not spend any more time on it, and will instead assume that
 D adequately covers the space of high-reward transitions to make learning feasible.
 
-## Applications of Multi-Agent Reinforcement Learning in Robotics
+## Applications of MARL in Robotics
 
 MARL has found numerous applications in robotics, leveraging the power of collaborative learning and decision-making.
 
@@ -225,6 +225,32 @@ MARL has found numerous applications in robotics, leveraging the power of collab
    - Robots that can effectively collaborate with humans in shared workspaces often use MARL.
    - Applications include assistive robotics, collaborative manufacturing, and service robots.
    - Example: Nikolaidis et al. (2017) used MARL to enable robots to adapt their behavior based on human preferences in collaborative tasks.
+
+## Open Research Questions in MARL
+
+Despite significant progress in MARL, several open research questions remain. These challenges present many opportunities for further advancement in the field:
+
+1. **Scalability**:
+   - How can MARL algorithms be scaled to handle a large number of agents efficiently?
+   - What techniques can be developed to reduce the computational complexity as the number of agents increases?
+
+2. **Non-stationarity**:
+   - How can MARL algorithms better address the non-stationary nature of multi-agent environments?
+   - What methods can improve stability and convergence in the face of changing agent behaviors?
+
+3. **Credit Assignment**:
+   - How can we accurately attribute team success or failure to individual agent actions in cooperative settings?
+   - What techniques can be developed to solve the multi-agent credit assignment problem more effectively?
+
+4. **Explainable MARL**:
+   - How can we make MARL algorithms more interpretable and explainable?
+   - What techniques can be developed to provide insights into the decision-making processes of multiple agents?
+
+5. **Heterogeneous Agent Teams**:
+   - How can MARL algorithms be designed to effectively handle teams of agents with different capabilities or objectives?
+   - What techniques can be developed to optimize the composition and coordination of heterogeneous agent teams?
+
+Addressing these open questions will lead more robust, efficient, and widely applicable multi-agent systems.
 
 ## (Time Permitting) In-Depth Exploration
 
@@ -292,3 +318,5 @@ Gu, S., Kuba, J. G., Wen, M., Chen, R., Wang, Z., Tian, Z., ... & Yang, Y. (2021
 Schulman, J. (2015). Trust Region Policy Optimization. arXiv preprint arXiv:1502.05477.
 
 Achiam, J., Held, D., Tamar, A., & Abbeel, P. (2017, July). Constrained policy optimization. In International conference on machine learning (pp. 22-31). PMLR.
+
+Rutherford, A., Ellis, B., Gallici, M., Cook, J., Lupu, A., Ingvarsson, G., ... & Foerster, J. N. (2023). Jaxmarl: Multi-agent rl environments in jax. arXiv preprint arXiv:2311.10090.
