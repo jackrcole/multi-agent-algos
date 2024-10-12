@@ -139,7 +139,7 @@ Conventionally, reinforcement learning algorithms require iterative interaction 
 
 Briefly, we can look at what the single-agent BCQ algorithm policy [Fujimoto 2019] looks like for a visual to get intuition about the multi-agent case: 
 
-$$\pi(s) = \argmax_{a_i+\xi_\phi(s, a_i, \Phi)} Q_\theta(s, a_i+\xi_\phi(s, a_i, \Phi)), \{a_i \sim G_\omega(s)\}_{i=1}^n$$
+$$\pi(s) = \text{arg max}_{a_i+\xi_\phi(s, a_i, \Phi)} Q_\theta(s, a_i+\xi_\phi(s, a_i, \Phi)), \{a_i \sim G_\omega(s)\}_{i=1}^n$$
 
 We can understand this by seeing that: 
 * $G_\omega$ is the generative model 
