@@ -130,15 +130,17 @@ Conventionally, reinforcement learning algorithms require iterative interaction 
 1. **BCQ for Multi-Agent RL (MA-BCQ)**:
    - MA-BCQ adapts the single-agent Batch Constrained Q-learning (BCQ) to multi-agent settings (Yang et al., 2021).
    - It addresses the extrapolation error in offline RL by constraining the learned policy to be close to the behavior policy in the dataset.
+   - MA-BCQ extends the BCQ algorithm to handle multiple agents by introducing a centralized critic and decentralized actors.
+   - The algorithm uses a perturbation model to generate actions close to those in the offline dataset, reducing the risk of out-of-distribution actions.
+   - MA-BCQ employs a two-stage learning process:
+     1. Train a generative model to capture the behavior policy distribution.
+     2. Learn a Q-function that evaluates state-action pairs while constraining actions to be similar to those in the dataset.
+   - This formulation helps balance between maximizing the Q-value and staying close to the behavior policy, which is crucial for offline learning in multi-agent settings.
 
 2. **Multi-Agent Constrained Policy Optimization (MACPO)**:
    - MACPO extends Constrained Policy Optimization to multi-agent scenarios for offline learning (Yang et al., 2022).
 Offline multi-agent reinforcement algorithms learn from a fixed dataset of experiences without direct interaction with the environment. In this section, we will survey some 
 offline MARL algorithms.
-
-#### BCQ for Multi-Agent RL (MA-BCQ)
-   - MA-BCQ adapts the single-agent Batch Constrained Q-learning (BCQ) to multi-agent settings [9].
-   - It addresses the extrapolation error in offline RL by constraining the learned policy to be close to the behavior policy in the dataset.
 
 #### Multi-Agent Constrained Policy Optimization (MACPO) 
 
@@ -166,9 +168,6 @@ With the above single-agent concepts satisfied, the authors are able to show tha
    - MACPO extends Constrained Policy Optimization to multi-agent scenarios for offline learning [10].
    - It uses a trust region approach to ensure policy improvement while satisfying constraints.
 
-3. **Offline Multi-Agent Reinforcement Learning with Implicit Constraint (OMAIC)**:
-   - OMAIC tackles the challenge of distribution shift in offline MARL (Jiang et al., 2022).
-   - It introduces an implicit constraint to penalize out-of-distribution actions and encourage in-distribution actions.
 
 #### Challenges with Offline MARL
 1. However, collecting static data for offline MARL poses sig-
@@ -256,9 +255,6 @@ Addressing these open questions will lead more robust, efficient, and widely app
 
 [https://arxiv.org/pdf/2005.01643]
 
-#### Open Research Directions and Questions
-
-
 ## References
 
 Bernstein, D. S., Givan, R., Immerman, N., & Zilberstein, S. (2002). The complexity of decentralized control of Markov decision processes. Mathematics of operations research, 27(4), 819-840.
@@ -287,7 +283,7 @@ Sutton, R. S., & Barto, A. G. (2018). Reinforcement learning: An introduction. M
 
 Yang, Y., Luo, Y., Li, M., Schuurmans, D., & Ammar, H. B. (2022). Batch reinforcement learning with hyperparameter gradients. In International Conference on Machine Learning (pp. 24983-25009). PMLR.
 
-Yang, Y., Tutunov, R., Sakulwongtana, P., & Ammar, H. B. (2021). Project-based multi-agent reinforcement learning. In Proceedings of the 20th International Conference on Autonomous Agents and MultiAgent Systems (pp. 1527-1535).
+Yang, Y., Ma, X., Li, C., Zheng, Z., Zhang, Q., Huang, G., ... & Zhao, Q. (2021). Believe what you see: Implicit constraint approach for offline multi-agent reinforcement learning. Advances in Neural Information Processing Systems, 34, 10299-10312.
 
 Yu, C., Velu, A., Vinitsky, E., Wang, Y., Bayen, A., & Wu, Y. (2021). The surprising effectiveness of PPO in cooperative, multi-agent games. arXiv preprint arXiv:2103.01955.
 
@@ -320,3 +316,5 @@ Schulman, J. (2015). Trust Region Policy Optimization. arXiv preprint arXiv:1502
 Achiam, J., Held, D., Tamar, A., & Abbeel, P. (2017, July). Constrained policy optimization. In International conference on machine learning (pp. 22-31). PMLR.
 
 Rutherford, A., Ellis, B., Gallici, M., Cook, J., Lupu, A., Ingvarsson, G., ... & Foerster, J. N. (2023). Jaxmarl: Multi-agent rl environments in jax. arXiv preprint arXiv:2311.10090.
+
+Jiang, J., & Lu, Z. (2023). Offline Decentralized Multi-Agent Reinforcement Learning. In ECAI (pp. 1148-1155).
