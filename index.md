@@ -25,6 +25,16 @@ Multi-Agent Reinforcement Learning (MARL) is an extension of traditional Reinfor
    - Non-stationary environments due to changing behaviors of other agents.
    - Potential for cooperation, competition, or mixed scenarios (Gronauer & Diepold, 2022).
 
+<div style="display: flex; justify-content: space-between;">
+  <div style="flex: 1; margin-right: 10px;">
+    <img src="images/single-agent-rl.png" alt="MARL vs Traditional RL" style="width: 100%;">
+  </div>
+  <div style="flex: 1; margin-left: 10px;">
+    <img src="images/multi-agent rl.png" alt="MARL Framework" style="width: 100%;">
+  </div>
+</div>
+<p style="text-align: center;"><em>Figure 1: Comparison of Single-Agent RL (left) and Multi-Agent RL Framework (right). Credit: Dinneweth et al. (2022).</em></p>
+
 ## Formalization of MARL
 
 MARL can be formalized as an extension of the Markov Decision Process (MDP) used in single-agent RL. MARL typically uses a Decentralized Partially Observable Markov Decision Process (Dec-POMDP) or a Stochastic Game framework (Oliehoek & Amato, 2016; Shoham & Leyton-Brown, 2008).
@@ -59,7 +69,7 @@ MARL can be formalized as an extension of the Markov Decision Process (MDP) used
    The goal in MARL is to find the optimal joint policy $\boldsymbol{\pi}^*$ (Zhang et al., 2021) that maximizes the expected cumulative reward for all agents:
 
    $$\boldsymbol{\pi}^* = \arg\max_{\boldsymbol{\pi}} \mathbb{E}_{\boldsymbol{\pi}}[\sum_{t=0}^{\infty} \gamma^t R(s_t, \mathbf{a}_t)]$$
-   
+  
 ## Algorithms
 
 MARL algorithms can be broadly categorized into two types: Online and Offline.
@@ -348,3 +358,5 @@ Jiang, C., & Sheng, Z. (2009). Case-based reinforcement learning for dynamic inv
 Scott Fujimoto, David Meger, and Doina Precup. Off-policy deep reinforce- ment learning without exploration, 2019.
 
 Jihwan Oh, Sungnyun Kim, Gahee Kim, SeongHwan Kim, and Se-Young Yun. Diffusion-based episodes augmentation for offline multi-agent rein- forcement learning. In ICML 2024 Workshop on Structured Probabilistic Inference & Generative Modeling, 2024.
+
+Dinneweth, J., Boubezoul, A., Mandiau, R., & Espié, S. (2022). Multi-agent reinforcement learning for autonomous vehicles: A survey. Autonomous Intelligent Systems, 2(1), 27.
