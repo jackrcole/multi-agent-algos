@@ -4,8 +4,6 @@ title: Survey of Multi-Agent Reinforcement Learning Algorithms
 description: "Mini-project #1 for CMSC 818B: Decision-Making for Robotics (F24)"
 ---
 
-[1] Overview document: https://arxiv.org/pdf/2409.03052 
-
 ## Introduction to MARL
 
 Multi-Agent Reinforcement Learning (MARL) is an extension of traditional Reinforcement Learning (RL) that deals with multiple agents learning to interact in a shared environment (Buşoniu et al., 2010).
@@ -32,21 +30,23 @@ Multi-Agent Reinforcement Learning (MARL) is an extension of traditional Reinfor
 MARL can be formalized as an extension of the Markov Decision Process (MDP) used in single-agent RL. MARL typically uses a Decentralized Partially Observable Markov Decision Process (Dec-POMDP) or a Stochastic Game framework (Oliehoek & Amato, 2016; Shoham & Leyton-Brown, 2008).
 
 1. **Dec-POMDP**:
-   A Dec-POMDP is defined by a tuple ($I$, $S$, $A_{i \in I}$, $O_{i \in I}$, $P$, $R$, $\gamma$) where:
+   A Dec-POMDP is defined by a tuple ($I$, $S$, $A$, $O$, $P$, $R$, $\Omega$, $\gamma$) where:
    - $I$ is the finite set of agents
-   - $S$ is the set of environmental states
-   - $A_i$ is the set of actions available to agent $i$
-   - $O_i$ is the set of observations for agent $i$
-   - $P: S \times \prod_{i \in I} A_i \times S \rightarrow [0, 1]$ is the state transition function
-   - $R: S \times \prod_{i \in I} A_i \rightarrow \mathbb{R}$ is the reward function
+   - $S$ is the set of states
+   - $A = \times_{i \in I} A_i$ is the set of joint actions
+   - $O = \times_{i \in I} O_i$ is the set of joint observations
+   - $P: S \times A \times S \rightarrow [0, 1]$ is the state transition probability function
+   - $R: S \times A \rightarrow \mathbb{R}$ is the reward function
+   - $\Omega: S \times A \times O \rightarrow [0, 1]$ is the observation probability function
    - $\gamma \in [0, 1]$ is the discount factor
-   (Bernstein et al., 2002)
 
 2. **Stochastic Game**:
-   A stochastic game is defined by a tuple ($I$, $S$, $A_{i \in I}$, $P$, $R_{i \in I}$) where:
-   - $I, S, A_i$ are defined as in Dec-POMDP
-   - $P: S \times \prod_{i \in I} A_i \times S \rightarrow [0, 1]$ is the state transition function
-   - $R_i: S \times \prod_{i \in I} A_i \rightarrow \mathbb{R}$ is the reward function for agent $i$
+   A stochastic game is defined by a tuple ($I$, $S$, $A$, $P$, $R$) where:
+   - $I$ is the finite set of agents
+   - $S$ is the set of states
+   - $A = \times_{i \in I} A_i$ is the set of joint actions
+   - $P: S \times A \times S \rightarrow [0, 1]$ is the state transition probability function
+   - $R: S \times A \rightarrow \mathbb{R}^{|I|}$ is the reward function, where $R(s, a)$ gives a vector of rewards for each agent
    (Shapley, 1953)
 
 3. **Policy and Value Functions**:
