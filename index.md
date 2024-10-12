@@ -234,7 +234,7 @@ MARL has found applications in many different areas due to the power and flexibi
 
 ### Robotics
 
-MARL has found numerous applications in robotics, leveraging the power of collaborative learning and decision-making. MARL is quite important in decision-making for robotics as most scenarios that we think of modeling in the world require the interaction between multiple subjects/agents. If we would like to deploy robots into the world successfully, we need to make sure they are capable of making the right decision and acting properly in the multi-agent ecosystem. 
+MARL has found numerous applications in robotics, leveraging the power of collaborative learning and decision-making. MARL is quite important in decision-making for robotics as most scenarios that we think of modeling in the world require the interaction between multiple subjects/agents. If we would like to deploy robots into the world successfully, we need to make sure they are capable of making the right decision and acting properly in the multi-agent ecosystem.
 
 1. **Swarm Robotics**:
    - MARL enables large groups of simple robots to exhibit complex collective behaviors.
@@ -287,9 +287,14 @@ Despite significant progress in MARL, several open research questions remain. Th
 
 6. **Data Quality and Augmentation**
    - What are effective ways to augment offline datasets for offline training paradigms? 
-   - How do we do this efficiently and reduce the cost to gather and generate data that exist today? 
+   - How do we do this efficiently and reduce the cost to gather and generate data that exist today?
 
 Addressing these open questions will lead more robust, efficient, and widely applicable multi-agent systems.
+
+<div style="text-align: center;">
+  <img src="images/jax-marl.png" alt="JAXMARL Framework" style="width: 80%; max-width: 600px;">
+  <p><em>Figure 2: JAXMARL addresses scalability concerns with JAX accelerated computation. Credit: Rutherford et. al. (2023).</em></p>
+</div>
 
 ## References
 
