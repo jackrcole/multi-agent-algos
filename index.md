@@ -307,7 +307,7 @@ Sunehag, P., Lever, G., Gruslys, A., Czarnecki, W. M., Zambaldi, V., Jaderberg, 
 
 Sutton, R. S., & Barto, A. G. (2018). Reinforcement learning: An introduction. MIT press.
 
-Yang, Y., Luo, Y., Li, M., Schuurmans, D., & Ammar, H. B. (2022). Batch reinforcement learning with hyperparameter gradients. In International Conference on Machine Learning (pp. 24983-25009). PMLR.
+Lee, B., Lee, J., Vrancx, P., Kim, D., & Kim, K. E. (2020, November). Batch reinforcement learning with hyperparameter gradients. In International Conference on Machine Learning (pp. 5725-5735). PMLR.
 
 Yang, Y., Ma, X., Li, C., Zheng, Z., Zhang, Q., Huang, G., ... & Zhao, Q. (2021). Believe what you see: Implicit constraint approach for offline multi-agent reinforcement learning. Advances in Neural Information Processing Systems, 34, 10299-10312.
 
