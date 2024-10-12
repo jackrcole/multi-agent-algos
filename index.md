@@ -294,8 +294,6 @@ Gronauer, S., & Diepold, K. (2022). Multi-agent deep reinforcement learning: a s
 
 Hernandez-Leal, P., Kartal, B., & Taylor, M. E. (2019). A survey and critique of multiagent deep reinforcement learning. Autonomous Agents and Multi-Agent Systems, 33(6), 750-797.
 
-Jiang, M., Dmitriev, A., & Kuhnle, A. (2022). Offline multi-agent reinforcement learning with implicit constraint. arXiv preprint arXiv:2209.11698.
-
 Lowe, R., Wu, Y., Tamar, A., Harb, J., Abbeel, P., & Mordatch, I. (2017). Multi-agent actor-critic for mixed cooperative-competitive environments. In Advances in neural information processing systems (pp. 6379-6390).
 
 Oliehoek, F. A., & Amato, C. (2016). A concise introduction to decentralized POMDPs. Springer.
