@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Survey of Multi-Agent Reinforcement Learning Algorithms
-description: "Mini-project #1 (CMSC 818B: Decision-Making for Robotics (F24) - Jack Cole and Bhuvanesh Murali"
+description: "Mini-project #1 (CMSC 818B F24) - Jack Cole and Bhuvanesh Murali"
 ---
 
 ## Introduction to MARL
