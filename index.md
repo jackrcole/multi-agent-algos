@@ -56,11 +56,10 @@ MARL can be formalized as an extension of the Markov Decision Process (MDP) used
    - Action-Value Function: $Q^{\mathbf{\pi}}(s, \mathbf{a}) = \mathbb{E}\_{\mathbf{\pi}}\left[\sum\_{t=0}^{\infty} \gamma^t R(s\_t, \mathbf{a}\_t) \mid s_0 = s, \mathbf{a}\_0 = \mathbf{a}\right]$
 
 4. **Learning Objective**:
-   The goal in MARL is to find the optimal joint policy $\boldsymbol{\pi}^*$ that maximizes the expected cumulative reward for all agents:
+   The goal in MARL is to find the optimal joint policy $\boldsymbol{\pi}^*$ (Zhang et al., 2021) that maximizes the expected cumulative reward for all agents:
 
    $$\boldsymbol{\pi}^* = \arg\max_{\boldsymbol{\pi}} \mathbb{E}_{\boldsymbol{\pi}}[\sum_{t=0}^{\infty} \gamma^t R(s_t, \mathbf{a}_t)]$$
-   (Zhang et al., 2021)
-
+   
 ## Algorithms
 
 MARL algorithms can be broadly categorized into two types: Online and Offline.
@@ -69,7 +68,7 @@ MARL algorithms can be broadly categorized into two types: Online and Offline.
 
 Agents using Online MARL algorithms learn a policy by directly interacting with the environment and using its experience to improve its behavior. When multiple agents are involved, this means agents must also learn how to interact with other agents (either as teammates, opponents, or a combination of the two). Some examples of Online MARL algorithms are:
 
-1. **Value Decomposition Networks (VDN)**:
+#### Value Decomposition Networks (VDN)
    - VDN decomposes the team value function into a sum of individual agent value functions (Sunehag et al., 2018).
    - It assumes that the global Q-function can be additively decomposed into individual agent Q-functions.
    - This approach allows for decentralized execution with centralized training.
@@ -79,7 +78,7 @@ Agents using Online MARL algorithms learn a policy by directly interacting with 
 
      where $Q_{tot}$ is the total Q-value, $\boldsymbol{\tau}$ is the joint action-observation history (trajectory), $\mathbf{u}$ is the joint action, $n$ is the number of agents, and $Q_i$ is the individual Q-value for agent $i$.
 
-2. **QMIX**:
+#### QMIX
    - QMIX extends VDN by using a mixing network to combine individual agent Q-values (Rashid et al., 2018).
    - It allows for a more complex relationship between individual and team value functions.
    - QMIX ensures that a global argmax performed on the joint action-value function yields the same result as a set of individual argmax operations performed on each agent's Q-values.
@@ -89,7 +88,7 @@ Agents using Online MARL algorithms learn a policy by directly interacting with 
 
      where $f$ is a monotonic mixing function implemented as a feed-forward neural network with non-negative weights.
 
-3. **Multi-Agent DDPG (MADDPG)**:
+#### Multi-Agent DDPG (MADDPG)
    - MADDPG is an extension of DDPG (Deep Deterministic Policy Gradient) for multi-agent scenarios (Lowe et al., 2017).
    - It uses a centralized training with decentralized execution paradigm.
    - Each agent has its own actor and critic, where the critic has access to all agents' observations and actions during training.
@@ -107,7 +106,7 @@ Agents using Online MARL algorithms learn a policy by directly interacting with 
      - $Q_i^{\mu}$ is the centralized action-value function for agent $i$
      - $\mathcal{D}$ is the replay buffer
 
-4. **Multi-Agent PPO (MAPPO)**:
+#### Multi-Agent PPO (MAPPO)
    - MAPPO is an extension of PPO (Proximal Policy Optimization) for multi-agent scenarios (Yu et al., 2021).
    - It combines the sample efficiency of PPO with centralized training and decentralized execution.
    - MAPPO uses a centralized value function and decentralized policies for each agent.
